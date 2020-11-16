@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import {AppLoading} from 'expo'
 import * as Font from 'expo-font'
+import Header from './components/Header'
+import ColorSchema from './constants/ColorSchema';
+import MainFeed from './screens/FeedStack/MainFeed'
+import {FeedStackNavigator} from './navigation/FullStackNavigator'
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -23,9 +27,7 @@ export default function App() {
     />
   }
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={{fontFamily: 'soft-heavy', fontSize: 27}}>Brigid hey, whats up babe! Nice titties!</Text>
-    </View>
+    <FeedStackNavigator />
   );
 }
 

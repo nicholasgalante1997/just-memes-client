@@ -1,11 +1,17 @@
-import React, {useState} from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import { StyleSheet} from 'react-native';
 import {AppLoading} from 'expo'
 import * as Font from 'expo-font'
-import Header from './components/Header'
-import ColorSchema from './constants/ColorSchema';
-import MainFeed from './screens/FeedStack/MainFeed'
+import {enableScreens} from 'react-native-screens'
+// Data Store
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import rootReducer from './store/reducers/rootReducer'
+import {composeWithDevTools} from 'redux-devtools-extension'
+
 import {FeedStackNavigator} from './navigation/FullStackNavigator'
+
+enableScreens();
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -15,10 +21,12 @@ const fetchFonts = () => {
   })
 }
 
+const store = createStore(rootReducer, composeWithDevTools())
+
 export default function App() {
 
   const [fontLoaded, setFontLoaded] = useState(false)
-
+ 
   if (!fontLoaded){
     return <AppLoading 
     startAsync={fetchFonts}
@@ -27,7 +35,9 @@ export default function App() {
     />
   }
   return (
-    <FeedStackNavigator />
+    <Provider store={store}>
+        <FeedStackNavigator />
+    </Provider>
   );
 }
 

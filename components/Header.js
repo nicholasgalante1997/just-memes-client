@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     banner: {
         backgroundColor: Colors.sky.primitive,
         width: '90%',
-        height: '7%',
+        height: '100%',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',

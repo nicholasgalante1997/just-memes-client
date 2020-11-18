@@ -3,6 +3,7 @@ import {View, Text, StyleSheet, Image, Button, TouchableOpacity} from 'react-nat
 import Colors from '../constants/ColorSchema'
 import CustomTextReg from '../constants/CustomTextReg';
 import { FontAwesome } from '@expo/vector-icons'; 
+import { FontAwesome5 } from '@expo/vector-icons'; 
 
 const PostCard = (props) => {
     return ( 
@@ -26,13 +27,13 @@ const PostCard = (props) => {
                                 </View>
                             <View style={styles.actions}>
                                 <View style={styles.likes}>
-                                        <FontAwesome name="arrow-up" size={24} color="white" style={{paddingHorizontal: 5}}/>
+                                        <FontAwesome5 name="bong" size={24} color="white" style={{paddingHorizontal: 5}}/>
                                         <CustomTextReg style={{paddingHorizontal: 5}}>
                                             {props.likes}
                                         </CustomTextReg>
                                 </View>
                                 <View style={styles.likes}>
-                                <FontAwesome name="arrow-down" size={24} color="white" style={{paddingHorizontal: 5}}/>
+                                <FontAwesome5 name="car-crash" size={24} color="white" style={{paddingHorizontal: 5}}/>
                                 <CustomTextReg style={{paddingHorizontal: 5}}>
                                     {props.dislikes}
                                 </CustomTextReg>
